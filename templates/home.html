@@ -3,7 +3,12 @@
 {% block content %}
     <p>Welcome, {{ name }}!</p>
     <p>Here is your patient list today</p>
-    {% for pet in pets %}
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.petname }}: {{ pet.animal_type }}</li>
+        {% endfor %}
+    </ul>
     
+        
 
 {% endblock %}
