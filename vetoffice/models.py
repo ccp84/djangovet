@@ -33,5 +33,8 @@ class Patient(models.Model):
     def __str__(self):
         return self.pet_name + ", " + self.animal_type
 
+    def has_multiple_pets(self):
+        return self.patient_set.count() > 1
+
     class Meta:
         ordering = ["pet_name"]
