@@ -13,10 +13,6 @@ class Patient(models.Model):
     BIRD = "BI"
     REPTILE = "RE"
     OTHER = "OT"
-    breed = models.CharField(max_length=200)
-    pet_name = models.CharField(max_length=200)
-    age = models.IntegerField(default=0)
-    owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
     ANIMAL_TYPE_CHOICES = [
         (DOG, "Dog"),
         (CAT, "Cat"),
@@ -24,5 +20,12 @@ class Patient(models.Model):
         (REPTILE, "Reptile"),
         (OTHER, "Other"),
     ]
+    breed = models.CharField(max_length=200)
+    pet_name = models.CharField(max_length=200)
+    age = models.IntegerField(default=0)
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
     animal_type = models.CharField(
         max_length=2, choices=ANIMAL_TYPE_CHOICES, default=OTHER)
+
+    class Meta:
+        ordering = ["pet_name"]
