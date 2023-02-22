@@ -35,31 +35,37 @@ class OwnerCreate(CreateView):
     model = Owner
     template_name = "owner_create_form.html"
     fields = ["first_name", "last_name", "phone"]
+    success_url = "/owner/list"
 
 
 class PatientCreate(CreateView):
     model = Patient
     template_name = "patient_create_form.html"
     fields = ["animal_type", "breed", "pet_name", "age", "owner"]
+    success_url = "patient/list"
 
 
 class OwnerUpdate(UpdateView):
     model = Owner
     template_name = "owner_update_form.html"
     fields = ["first_name", "last_name", "phone"]
+    success_url = "/owner/list"
 
 
 class PatientUpdate(UpdateView):
     model = Patient
     template_name = "patient_update_form.html"
     fields = ["animal_type", "breed", "pet_name", "age", "owner"]
+    success_url = "patient/list"
 
 
 class OwnerDelete(DeleteView):
     model = Owner
     template_name = "owner_delete_form.html"
+    success_url = "/owner/list"
 
 
 class PatientDelete(DeleteView):
     model = Patient
     template_name = "patient_delete_form.html"
+    success_url = "patient/list"
